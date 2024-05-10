@@ -15,12 +15,18 @@ import { useRoute } from 'vue-router';
 const destination = ref(null);
 const route = useRoute();
 
+const props =  defineProps({
+    id: String,
+    slug: String
+})
+
+
+
 async function fetchDestination(){
     const res = await fetch(
-    `https://travel-dummy-api.netlify.app/${route.params.slug}.json`
+    `https://travel-dummy-api.netlify.app/${props.slug}.json`
   );
   destination.value = await res.json()
-  console.log(destination.value);
 }
 
 fetchDestination()

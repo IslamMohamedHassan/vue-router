@@ -5,7 +5,11 @@ import HomeView from '../views/HomeView.vue'
 const routes = [ 
 {path: '/',name: 'home',component: HomeView},            
 
-{path: '/destination/:id/:slug', name: 'destination',component: () => import( '../views/DestinationShow.vue')},
+{path: '/destination/:id/:slug',
+ name: 'destination',
+ component: () => import( '../views/DestinationShow.vue'),
+ props: true,
+},
 
 ];
 const router = createRouter({
